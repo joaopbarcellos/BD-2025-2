@@ -1,5 +1,5 @@
 import psycopg2
-from types import ConexaoInterface
+from customTypes import ConexaoInterface
 
 class Conexao(ConexaoInterface):
     conn: psycopg2.extensions.connection = None

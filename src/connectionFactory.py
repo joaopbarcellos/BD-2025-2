@@ -1,4 +1,4 @@
-from src.service.connection import Conexao
+from service.connection import Conexao
 import psycopg2
 
 class ConnectionFactory:
@@ -14,8 +14,11 @@ class ConnectionFactory:
                     host="localhost",
                     port="5432"
                 )
+                ConnectionFactory.__connection = Conexao(conn)
             except Exception as e:
                 print(f"Erro ao conectar ao banco de dados: {e}")
                 raise e
-            ConnectionFactory.__connection = Conexao(conn)
         return ConnectionFactory.__connection
+    
+
+connectionService: Conexao = ConnectionFactory().get_service()
