@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: AcademiaBancoDados
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: sa
+      POSTGRES_PASSWORD: 123321q
+      POSTGRES_DB: academia
+    restart: unless-stopped
